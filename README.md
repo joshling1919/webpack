@@ -1,6 +1,7 @@
 # Webpack
 
 ## Purpose of Webpack
+Main purpose is to link up JS modules.
 1. Execute JavaScript modules in the correct order, factoring in dependencies between the JS modules.
 2. Limit the number of JS files that need to be loaded over HTTP.
 
@@ -53,3 +54,14 @@ myModules[entryPointIndex]();
 ```
 
 The above code is the simplified version of the `bundle.js` in `intro_project`. The real `bundle.js` is more fancified code that involves compatibility with different module systems, as well as to handle caching of modules so that we're not repeatedly calling the same module functions again and again.
+
+## Module Loaders
+Module loaders are used to do some pre-processing on our files before they're added to our bundle.js. Loaders are commonly used to implement transpiling for ES2015 code (ie. Babel). They can also be used to handle CSS, handle images, all different types of files can be enabled for use with Webpack by use of these module loaders.
+
+### Babel
+Babel is used for transpiling JavaScript, usually from ES2015 to ES5.
+
+There are 3 separate modules that gets Babel working. There are probably several dozen libraries associated with Babel.
+1. `babel-loader`- Teaches babel how to work with webpack (this is the compatibility layer). Babel officially has support for over a dozen build systems. Instead of teaching babel itself how to work with all the different build systems, babel uses specific libraries to handle the compatibility for each system. `babel-loader` is the one for webpack.
+2. `babel-core`- The heart of babel. Knows how to take in code, parse it, and generate some output files.
+3. `babel-0present-env`- Ruleset for telling babel exactly what pieces of ES2015/5/7 syntax to look for, and how to turn it into ES5 code. The actual brains for how to do the transpilation.
