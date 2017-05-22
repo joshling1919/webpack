@@ -65,3 +65,10 @@ There are 3 separate modules that gets Babel working. There are probably several
 1. `babel-loader`- Teaches babel how to work with webpack (this is the compatibility layer). Babel officially has support for over a dozen build systems. Instead of teaching babel itself how to work with all the different build systems, babel uses specific libraries to handle the compatibility for each system. `babel-loader` is the one for webpack.
 2. `babel-core`- The heart of babel. Knows how to take in code, parse it, and generate some output files.
 3. `babel-0present-env`- Ruleset for telling babel exactly what pieces of ES2015/5/7 syntax to look for, and how to turn it into ES5 code. The actual brains for how to do the transpilation.
+
+### `css-loader` and `style-loader`
+- `css-loader`: knows how to deal with CSS imports. It tells webpack, "Hey here's how to read the CSS file and parse it." However, it doesn't actually know what to do with it.
+- `style-loader`: takes CSS imports and adds them to the HTML document. It takes any imported CSS files and inject it into a style tag into our HTML document.
+
+## Plugins
+Work a little bit outside of the webpack pipeline. They have the ability to keep files from ending up inside of the bundle.js output.
